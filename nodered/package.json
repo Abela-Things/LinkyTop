@@ -1,0 +1,11 @@
+{
+  "name": "node-red-project",
+  "description": "initially created for you by Node-RED 3.0.2",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "node-red-contrib-simpletime": "~2.10.4",
+    "node-red-dashboard": "~3.2.0",
+    "node-red-node-mongodb": "~0.2.5"
+  }
+}

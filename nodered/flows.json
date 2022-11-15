@@ -1,0 +1,1729 @@
+[
+    {
+        "id": "f57f32df.2e86d",
+        "type": "tab",
+        "label": "Store Sensor Data",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4ce6f98c.254bf",
+        "type": "tab",
+        "label": "Temps réel",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "572a4fbb.49dd48",
+        "type": "tab",
+        "label": "Global Historical Chart",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "69d60a8f3bd25bb7",
+        "type": "tab",
+        "label": "Réglages",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "36760f36292c453f",
+        "type": "tab",
+        "label": "Data Mining",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "188906e9.febf59",
+        "type": "tls-config",
+        "name": "mosquitto-public",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "client.crt",
+        "keyname": "client.key",
+        "caname": "mosquitto.org.crt",
+        "servername": "test.mosquitto.org",
+        "verifyservercert": true
+    },
+    {
+        "id": "8001c7e5.802568",
+        "type": "mqtt-broker",
+        "name": "data-nonencrypted",
+        "broker": "hp.lan",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "compatmode": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "5ed98660.51dad8",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#097479",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#0eb8c0",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#097479",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "RT-Linky",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "true",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "88fe602a.e1955",
+        "type": "ui_tab",
+        "name": "Accueil",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1f3fcf14.3e0841",
+        "type": "ui_tab",
+        "name": "Historique",
+        "icon": "fa-area-chart",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "1bb2d88d.8be177",
+        "type": "ui_group",
+        "name": "Temps réel",
+        "tab": "88fe602a.e1955",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5571671c.8ea9b",
+        "type": "ui_group",
+        "name": "Historical Data",
+        "tab": "1f3fcf14.3e0841",
+        "order": 1,
+        "disp": true,
+        "width": "18"
+    },
+    {
+        "id": "11d8514.a44dcaf",
+        "type": "ui_group",
+        "name": "Chart Controls",
+        "tab": "1f3fcf14.3e0841",
+        "order": 2,
+        "disp": true,
+        "width": "6"
+    },
+    {
+        "id": "b05b1d63c3f0e709",
+        "type": "mongodb",
+        "hostname": "hp.lan",
+        "port": "27017",
+        "db": "RT-Linky",
+        "name": "hplan"
+    },
+    {
+        "id": "240ad2a73d73d8c0",
+        "type": "ui_group",
+        "name": "Compteur",
+        "tab": "88fe602a.e1955",
+        "order": 2,
+        "disp": true,
+        "width": "10",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "17bc02d7b37206b4",
+        "type": "ui_tab",
+        "name": "Réglages",
+        "icon": "settings",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "7d6aab3ac5e3055a",
+        "type": "ui_group",
+        "name": "Réglages",
+        "tab": "17bc02d7b37206b4",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3f0be2ca.a1cc0e",
+        "type": "function",
+        "z": "f57f32df.2e86d",
+        "name": "Format Time Series DB record",
+        "func": "msg.payload = {\n        time:     new Date().getTime(),\n        papp:     parseInt(msg.payload)\n    } ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 100,
+        "wires": [
+            [
+                "b61597c9ac365928",
+                "a3c1e72f.69eea"
+            ]
+        ]
+    },
+    {
+        "id": "c2b4edac.9f63c",
+        "type": "mqtt in",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "topic": "PAPP",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "8001c7e5.802568",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 100,
+        "wires": [
+            [
+                "3f0be2ca.a1cc0e"
+            ]
+        ]
+    },
+    {
+        "id": "e6e6a180cf0e3390",
+        "type": "function",
+        "z": "f57f32df.2e86d",
+        "name": "Format Time Series DB record",
+        "func": "msg.payload = {\n        time:     new Date().getTime(),\n        hp: parseInt(msg.payload)\n    } ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 160,
+        "wires": [
+            [
+                "bd7f897f15c0856b",
+                "b61597c9ac365928"
+            ]
+        ]
+    },
+    {
+        "id": "bd7f897f15c0856b",
+        "type": "debug",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 730,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3070128a5ecc3c9e",
+        "type": "mqtt in",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "topic": "HCHP",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "8001c7e5.802568",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 160,
+        "wires": [
+            [
+                "e6e6a180cf0e3390"
+            ]
+        ]
+    },
+    {
+        "id": "9ca6c918204b53f9",
+        "type": "function",
+        "z": "f57f32df.2e86d",
+        "name": "Format Time Series DB record",
+        "func": "msg.payload = {\n        time:     new Date().getTime(),\n        hc:      parseInt(msg.payload)\n    } ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 220,
+        "wires": [
+            [
+                "64c5eec8812df3a7",
+                "b61597c9ac365928"
+            ]
+        ]
+    },
+    {
+        "id": "64c5eec8812df3a7",
+        "type": "debug",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 730,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "16f68aa7446c9042",
+        "type": "mqtt in",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "topic": "HCHC",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "8001c7e5.802568",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 220,
+        "wires": [
+            [
+                "9ca6c918204b53f9"
+            ]
+        ]
+    },
+    {
+        "id": "3828ece799ba2f2e",
+        "type": "function",
+        "z": "f57f32df.2e86d",
+        "name": "Format Time Series DB record",
+        "func": "msg.payload = {\n        time:     new Date().getTime(),\n        state:     msg.payload\n    } ;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "ee9b683c59d9e305",
+                "b61597c9ac365928"
+            ]
+        ]
+    },
+    {
+        "id": "ee9b683c59d9e305",
+        "type": "debug",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 730,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7a82d3ecfff49015",
+        "type": "mqtt in",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "topic": "PTEC",
+        "qos": "1",
+        "datatype": "utf8",
+        "broker": "8001c7e5.802568",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "3828ece799ba2f2e"
+            ]
+        ]
+    },
+    {
+        "id": "b61597c9ac365928",
+        "type": "join",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "mode": "custom",
+        "build": "merged",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "5",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 730,
+        "y": 340,
+        "wires": [
+            [
+                "3032d394f73f3ddd",
+                "4b7ecb80b3c6baa3"
+            ]
+        ]
+    },
+    {
+        "id": "a3c1e72f.69eea",
+        "type": "debug",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "x": 730,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "3032d394f73f3ddd",
+        "type": "debug",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 890,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4b7ecb80b3c6baa3",
+        "type": "mongodb out",
+        "z": "f57f32df.2e86d",
+        "mongodb": "b05b1d63c3f0e709",
+        "name": "",
+        "collection": "Linky-Liancourt",
+        "payonly": true,
+        "upsert": false,
+        "multi": false,
+        "operation": "store",
+        "x": 940,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "299a63a9.e00a0c",
+        "type": "mqtt in",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "topic": "PAPP",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "8001c7e5.802568",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 230,
+        "y": 180,
+        "wires": [
+            [
+                "1d4ec5b5.82c9f2",
+                "ba3c0dd7dccecb83"
+            ]
+        ]
+    },
+    {
+        "id": "1d4ec5b5.82c9f2",
+        "type": "ui_chart",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "group": "240ad2a73d73d8c0",
+        "order": 6,
+        "width": "8",
+        "height": "5",
+        "label": "Historique 2h",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "En attente de données",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 390,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e4654ed388458cd0",
+        "type": "mqtt in",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "topic": "HCHP",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "8001c7e5.802568",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 230,
+        "y": 240,
+        "wires": [
+            [
+                "c1465b5eaf69bc76",
+                "dcccde48ad1344fc"
+            ]
+        ]
+    },
+    {
+        "id": "168b42f8c293dd22",
+        "type": "mqtt in",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "topic": "HCHC",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "8001c7e5.802568",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "90e2f197835fd2e6",
+                "dcccde48ad1344fc"
+            ]
+        ]
+    },
+    {
+        "id": "6cd089cded7f6cdb",
+        "type": "mqtt in",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "topic": "PTEC",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "8001c7e5.802568",
+        "nl": false,
+        "rap": false,
+        "inputs": 0,
+        "x": 230,
+        "y": 120,
+        "wires": [
+            [
+                "79dbf77a20213b24",
+                "2c3cecb1476798b0"
+            ]
+        ]
+    },
+    {
+        "id": "2578ddfbc6807728",
+        "type": "ui_text",
+        "z": "4ce6f98c.254bf",
+        "group": "240ad2a73d73d8c0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Tarif actuel:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "x": 570,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "79dbf77a20213b24",
+        "type": "change",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "HP",
+                "fromt": "str",
+                "to": "Heures Pleines",
+                "tot": "str"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "HC",
+                "fromt": "str",
+                "to": "Heures Creuses",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "HP_tarif",
+                "pt": "msg",
+                "to": "HP_tarif",
+                "tot": "global"
+            },
+            {
+                "t": "set",
+                "p": "HC_tarif",
+                "pt": "msg",
+                "to": "HC_tarif",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 120,
+        "wires": [
+            [
+                "2578ddfbc6807728"
+            ]
+        ]
+    },
+    {
+        "id": "c1465b5eaf69bc76",
+        "type": "ui_text",
+        "z": "4ce6f98c.254bf",
+        "group": "240ad2a73d73d8c0",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Heures pleines :",
+        "format": " {{msg.payload}} Wh",
+        "layout": "row-left",
+        "className": "",
+        "x": 400,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "90e2f197835fd2e6",
+        "type": "ui_text",
+        "z": "4ce6f98c.254bf",
+        "group": "240ad2a73d73d8c0",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Heures creuses :",
+        "format": "{{msg.payload}} Wh",
+        "layout": "row-left",
+        "className": "",
+        "x": 410,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "7fb4a4734e933bcb",
+        "type": "ui_text",
+        "z": "4ce6f98c.254bf",
+        "group": "1bb2d88d.8be177",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Dernière mise à jour:",
+        "format": "{{msg.mytimes}}",
+        "layout": "row-center",
+        "className": "",
+        "x": 580,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "2c3cecb1476798b0",
+        "type": "simpletime",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "mydate": true,
+        "myymd": false,
+        "myyear": false,
+        "mymonth": false,
+        "mymonthn": false,
+        "mydom": false,
+        "mydoy": false,
+        "myday": false,
+        "myhourpm": false,
+        "myhour": false,
+        "mytime": false,
+        "mytimes": true,
+        "myminute": false,
+        "myminutes": false,
+        "mysecond": false,
+        "mymillis": false,
+        "myepoch": false,
+        "myrawdate": false,
+        "mypm": false,
+        "x": 390,
+        "y": 80,
+        "wires": [
+            [
+                "7fb4a4734e933bcb"
+            ]
+        ]
+    },
+    {
+        "id": "ba3c0dd7dccecb83",
+        "type": "ui_gauge",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "group": "1bb2d88d.8be177",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "donut",
+        "title": "Puissance actuelle",
+        "label": "Watts",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "12000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "500",
+        "seg2": "5000",
+        "className": "",
+        "x": 410,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "dcccde48ad1344fc",
+        "type": "join",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "",
+        "propertyType": "full",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 370,
+        "y": 340,
+        "wires": [
+            [
+                "9b113fd8c9dcdaad"
+            ]
+        ]
+    },
+    {
+        "id": "9b113fd8c9dcdaad",
+        "type": "change",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "hchc",
+                "pt": "msg",
+                "to": "$number(msg.payload.HCHC.payload)",
+                "tot": "jsonata"
+            },
+            {
+                "t": "set",
+                "p": "hchp",
+                "pt": "msg",
+                "to": "$number(msg.payload.HCHP.payload)",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 340,
+        "wires": [
+            [
+                "950db8182d106ea8"
+            ]
+        ]
+    },
+    {
+        "id": "950db8182d106ea8",
+        "type": "function",
+        "z": "4ce6f98c.254bf",
+        "name": "function 1",
+        "func": "var hchc = msg.hchc;\nvar hchp = msg.hchp;\n\nif (flow.get(\"old_power\") != 0) {\n    msg.payload = hchc + hchp - flow.get(\"old_power\");\n} else {\n    msg.payload = 0;\n}\nflow.set(\"old_power\", hchc + hchp);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nflow.set(\"old_power\", 0);",
+        "finalize": "",
+        "libs": [],
+        "x": 680,
+        "y": 340,
+        "wires": [
+            [
+                "7b4f16d13da2e001"
+            ]
+        ]
+    },
+    {
+        "id": "7b4f16d13da2e001",
+        "type": "ui_chart",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "group": "240ad2a73d73d8c0",
+        "order": 7,
+        "width": "8",
+        "height": "5",
+        "label": "incrémentations compteur",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "En attente de données",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 870,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "72d863296e7415f9",
+        "type": "comment",
+        "z": "4ce6f98c.254bf",
+        "name": "En cours!",
+        "info": "En cours!",
+        "x": 400,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "0f0f2efcdc77505c",
+        "type": "comment",
+        "z": "4ce6f98c.254bf",
+        "name": "Ajout du CO2 en fonction du pays (sélect from FR, AL, UK, BE, IT, ESP)",
+        "info": "",
+        "x": 530,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "c31f0811.b2031",
+        "type": "function",
+        "z": "572a4fbb.49dd48",
+        "name": "Create a Chart Array for Chart.js",
+        "func": "// This function reformats the timeseries data into an array that \n// Chart.js (See http://www.chartjs.org/ ) will plot\n// The node-red-dashboard Chart node uses Chart.js \n\nvar starttime = flow.get(\"start-time\");\nvar endtime = flow.get(\"end-time\");\n\nif( msg.payload.length === 0 ) {\n    // The historical database does not contain values for this date range \n    // Reset the chart with a blank array\n    msg.payload = [] ;\n    return msg;\n}\n\n// The Array has this structure, inserting the first element as a template.\nvar ChartData = [ {\"series\":[\"Data\"],\n                   \"data\":[[{\"x\":msg.payload[0].time,\"y\":msg.payload[0].papp}]],\n                   \"labels\":[\"Data\"]}];\n\n// Start at 1 because we've already added element 0 in the initial array definition\nfor( var i=1; i < msg.payload.length; i++ ) {\n    if( (msg.payload[i].time >= starttime) && (msg.payload[i].time <= endtime) ) {\n        // This temperature reading is within the Date Range\n        ChartData[0].data[0].push( { \"x\":msg.payload[i].time,\"y\":msg.payload[i].papp } );\n    }    \n}\n// Now we need to sort on the time so that we give the Chart node an array in time order\nChartData[0].data[0].sort(function sortNumber(a,b) { return a.x - b.x; });\n\nmsg.payload = ChartData;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 490,
+        "y": 160,
+        "wires": [
+            [
+                "fe0204d0.c3dad8"
+            ]
+        ]
+    },
+    {
+        "id": "2191d8b4.1dac78",
+        "type": "debug",
+        "z": "572a4fbb.49dd48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 790,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "5b678ae7.552f5c",
+        "type": "debug",
+        "z": "572a4fbb.49dd48",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 790,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f3cab755.d3d0b8",
+        "type": "change",
+        "z": "572a4fbb.49dd48",
+        "name": "Start Date",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1667489219729",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 300,
+        "wires": [
+            [
+                "d2ee83716bce4249"
+            ]
+        ]
+    },
+    {
+        "id": "48e2f858.675d9",
+        "type": "change",
+        "z": "572a4fbb.49dd48",
+        "name": "End Date",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "date"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 230,
+        "y": 340,
+        "wires": [
+            [
+                "f9a87b4f421d0b44"
+            ]
+        ]
+    },
+    {
+        "id": "9c32e685.0ca7e8",
+        "type": "change",
+        "z": "572a4fbb.49dd48",
+        "name": "Start Time Range",
+        "rules": [
+            {
+                "t": "set",
+                "p": "start-time",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 300,
+        "wires": [
+            [
+                "2191d8b4.1dac78"
+            ]
+        ]
+    },
+    {
+        "id": "716de554.1cb37c",
+        "type": "change",
+        "z": "572a4fbb.49dd48",
+        "name": "End Time Range",
+        "rules": [
+            {
+                "t": "set",
+                "p": "end-time",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 340,
+        "wires": [
+            [
+                "5b678ae7.552f5c"
+            ]
+        ]
+    },
+    {
+        "id": "c56984b2.15922",
+        "type": "inject",
+        "z": "572a4fbb.49dd48",
+        "name": "",
+        "props": [
+            {
+                "p": "payload",
+                "v": "true",
+                "vt": "bool"
+            },
+            {
+                "p": "topic",
+                "v": "",
+                "vt": "string"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 90,
+        "y": 320,
+        "wires": [
+            [
+                "48e2f858.675d9",
+                "f3cab755.d3d0b8"
+            ]
+        ]
+    },
+    {
+        "id": "9e5cf2f1.9769b",
+        "type": "ui_button",
+        "z": "572a4fbb.49dd48",
+        "name": "",
+        "group": "11d8514.a44dcaf",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Load PAPP data",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "topicType": "str",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "383a86b1.5e6e6a"
+            ]
+        ]
+    },
+    {
+        "id": "fe0204d0.c3dad8",
+        "type": "ui_chart",
+        "z": "572a4fbb.49dd48",
+        "name": "",
+        "group": "5571671c.8ea9b",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Historique de consommation",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "dd HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "2",
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 780,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "383a86b1.5e6e6a",
+        "type": "mongodb in",
+        "z": "572a4fbb.49dd48",
+        "mongodb": "b05b1d63c3f0e709",
+        "name": "hplan",
+        "collection": "Linky-Liancourt",
+        "operation": "find",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "c31f0811.b2031"
+            ]
+        ]
+    },
+    {
+        "id": "05c8166d445e1d66",
+        "type": "comment",
+        "z": "572a4fbb.49dd48",
+        "name": "Ajout de commentaires sur le graphe pour savoir à quoi correspond quoi",
+        "info": "",
+        "x": 390,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "d2ee83716bce4249",
+        "type": "ui_text_input",
+        "z": "572a4fbb.49dd48",
+        "name": "",
+        "label": "Début",
+        "tooltip": "",
+        "group": "11d8514.a44dcaf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "datetime-local",
+        "delay": 300,
+        "topic": "start-time",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "flow",
+        "x": 390,
+        "y": 300,
+        "wires": [
+            [
+                "9c32e685.0ca7e8"
+            ]
+        ]
+    },
+    {
+        "id": "f9a87b4f421d0b44",
+        "type": "ui_text_input",
+        "z": "572a4fbb.49dd48",
+        "name": "",
+        "label": "fin",
+        "tooltip": "",
+        "group": "11d8514.a44dcaf",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "datetime-local",
+        "delay": 300,
+        "topic": "end-time",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "flow",
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "716de554.1cb37c"
+            ]
+        ]
+    },
+    {
+        "id": "b5f78e5b3753562a",
+        "type": "ui_switch",
+        "z": "69d60a8f3bd25bb7",
+        "name": "",
+        "label": "Temps-réel (réduit l'autonomie de la batterie)",
+        "tooltip": "Récupérer la consommation toutes les secondes.",
+        "group": "7d6aab3ac5e3055a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "payload",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "fast",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "slow",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 450,
+        "y": 180,
+        "wires": [
+            [
+                "7d4c6223cce943d6"
+            ]
+        ]
+    },
+    {
+        "id": "7d4c6223cce943d6",
+        "type": "change",
+        "z": "69d60a8f3bd25bb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 740,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21111eb6a6af624e",
+        "type": "inject",
+        "z": "69d60a8f3bd25bb7",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "slow",
+        "payloadType": "str",
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "b5f78e5b3753562a"
+            ]
+        ]
+    },
+    {
+        "id": "b0ef489961496e09",
+        "type": "http response",
+        "z": "69d60a8f3bd25bb7",
+        "name": "current delay",
+        "statusCode": "200",
+        "headers": {
+            "content-type": "text/plain"
+        },
+        "x": 610,
+        "y": 320,
+        "wires": [],
+        "info": "CONTENT"
+    },
+    {
+        "id": "02d9c666d19a369b",
+        "type": "template",
+        "z": "69d60a8f3bd25bb7",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{global.delay}};{{global.delay-time}}",
+        "output": "str",
+        "x": 460,
+        "y": 320,
+        "wires": [
+            [
+                "b0ef489961496e09"
+            ]
+        ]
+    },
+    {
+        "id": "a41d67090811655b",
+        "type": "http in",
+        "z": "69d60a8f3bd25bb7",
+        "name": "delay-info",
+        "url": "/delay",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 320,
+        "y": 320,
+        "wires": [
+            [
+                "02d9c666d19a369b"
+            ]
+        ]
+    },
+    {
+        "id": "89043fed7ff1af23",
+        "type": "ui_dropdown",
+        "z": "69d60a8f3bd25bb7",
+        "name": "",
+        "label": "délai de mesure (augmente l'autonomie)",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "7d6aab3ac5e3055a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "30s",
+                "value": "30",
+                "type": "str"
+            },
+            {
+                "label": "45s",
+                "value": "45",
+                "type": "str"
+            },
+            {
+                "label": "1m",
+                "value": "60",
+                "type": "str"
+            },
+            {
+                "label": "1m30",
+                "value": "90",
+                "type": "str"
+            },
+            {
+                "label": "2m",
+                "value": "120",
+                "type": "str"
+            },
+            {
+                "label": "5m",
+                "value": "300",
+                "type": "str"
+            },
+            {
+                "label": "10m",
+                "value": "600",
+                "type": "str"
+            },
+            {
+                "label": "15m",
+                "value": "900",
+                "type": "str"
+            },
+            {
+                "label": "20m",
+                "value": "1200",
+                "type": "str"
+            },
+            {
+                "label": "30m",
+                "value": "1800",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 440,
+        "y": 260,
+        "wires": [
+            [
+                "7739f4f49886d867"
+            ]
+        ]
+    },
+    {
+        "id": "7739f4f49886d867",
+        "type": "change",
+        "z": "69d60a8f3bd25bb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "delay-time",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 780,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5be520681b5c04b1",
+        "type": "inject",
+        "z": "69d60a8f3bd25bb7",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "30",
+        "payloadType": "str",
+        "x": 190,
+        "y": 260,
+        "wires": [
+            [
+                "89043fed7ff1af23"
+            ]
+        ]
+    },
+    {
+        "id": "51cd53accbaa67de",
+        "type": "ui_text_input",
+        "z": "69d60a8f3bd25bb7",
+        "name": "",
+        "label": "Tarif Heures Pleines (€/kWh)",
+        "tooltip": "",
+        "group": "7d6aab3ac5e3055a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 420,
+        "y": 400,
+        "wires": [
+            [
+                "99dbf6fba5426e9f"
+            ]
+        ]
+    },
+    {
+        "id": "eff4ac87556f3f2a",
+        "type": "ui_text_input",
+        "z": "69d60a8f3bd25bb7",
+        "name": "",
+        "label": "Tarif Heures Creuses (€/kWh)",
+        "tooltip": "",
+        "group": "7d6aab3ac5e3055a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "topic",
+        "sendOnBlur": true,
+        "className": "",
+        "topicType": "msg",
+        "x": 410,
+        "y": 440,
+        "wires": [
+            [
+                "7596daedc9b82756"
+            ]
+        ]
+    },
+    {
+        "id": "99dbf6fba5426e9f",
+        "type": "change",
+        "z": "69d60a8f3bd25bb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "HP_tarif",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 400,
+        "wires": [
+            [
+                "5a88b9a4de9bfc3f"
+            ]
+        ]
+    },
+    {
+        "id": "7596daedc9b82756",
+        "type": "change",
+        "z": "69d60a8f3bd25bb7",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "HC_tarif",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 710,
+        "y": 440,
+        "wires": [
+            [
+                "40a838385bbfd184"
+            ]
+        ]
+    },
+    {
+        "id": "5a88b9a4de9bfc3f",
+        "type": "ui_text",
+        "z": "69d60a8f3bd25bb7",
+        "group": "240ad2a73d73d8c0",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Tarif heures pleines :",
+        "format": " {{global.HP_tarif}} €/kWh",
+        "layout": "row-left",
+        "className": "",
+        "x": 940,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "40a838385bbfd184",
+        "type": "ui_text",
+        "z": "69d60a8f3bd25bb7",
+        "group": "240ad2a73d73d8c0",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Tarif heures creuses",
+        "format": " {{global.HC_tarif}} €/kWh",
+        "layout": "row-left",
+        "className": "",
+        "x": 940,
+        "y": 440,
+        "wires": []
+    }
+]

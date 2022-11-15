@@ -1,0 +1,12 @@
+ADCO XXXXXXXXXXXX A     Adresse du compteur (12 chiffres censurés ici)
+OPTARIF HC.. <          Option tarif (ici heures Creuses)
+ISOUSC 30 9             Intensité souscrite (ici 30 A)
+HCHC 004196915 )     X  Index Heures Creuses en Wh
+HCHP 005146712 -     X  Index Heures Pleines en Wh
+PTEC HP..            X  Periode tarifaire en cours (ici HP)
+IINST 002 Y          X  Intensité instentannée (ici 2 A)
+IMAX 090 H              Intensité maximalle appelée (Toujours 90 pour une ligne monophasée)
+PAPP 00540 *         X  Puissance apparente en VA. Attention 1VA != 1W, c'est très proche mais si des moteurs synchrones sont en marche, le rapport VA/W s'éloigne vite de 1 (lave linge, pompe de piscine)
+HHPHC A ,               Horaires HP HC, vaut toujours 'A'
+MOTDETAT 000000 B       État du compteur, devrait toujours être à "000000"
+..... Boucle toute les 1 à 2 secondes.

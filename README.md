@@ -25,3 +25,5 @@ Les "flows" nécessaires au fonctionnement du projet et au dashboard sont défin
 * Des informations sur les émissions de CO2/kWh peuvent-être récupérées et affichées dans le dashboard.
 * Pareil pour les moyens de productions électrique à un instant donné.
 * Affichage du statut EcoWatt via l'API RTE dédiée.
+* Déploiement automatique des serveurs MQTT et Node-red
+* Configuration du Wifi non-hardcodée via une interface web

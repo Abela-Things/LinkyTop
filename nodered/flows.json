@@ -29,6 +29,14 @@
         "env": []
     },
     {
+        "id": "e983d77b30228fd8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "36760f36292c453f",
         "type": "tab",
         "label": "Data Mining",
@@ -262,6 +270,17 @@
         "className": ""
     },
     {
+        "id": "724504a751674592",
+        "type": "ui_group",
+        "name": "Réseau Français et Environnement",
+        "tab": "88fe602a.e1955",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
         "id": "3f0be2ca.a1cc0e",
         "type": "function",
         "z": "f57f32df.2e86d",
@@ -434,7 +453,7 @@
         "type": "debug",
         "z": "f57f32df.2e86d",
         "name": "",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -459,7 +478,9 @@
         "y": 280,
         "wires": [
             [
-                "3828ece799ba2f2e"
+                "3828ece799ba2f2e",
+                "d5d71477f6649eb0",
+                "c879df4207748cce"
             ]
         ]
     },
@@ -477,7 +498,7 @@
         "joinerType": "str",
         "accumulate": false,
         "timeout": "",
-        "count": "5",
+        "count": "7",
         "reduceRight": false,
         "reduceExp": "",
         "reduceInit": "",
@@ -539,6 +560,192 @@
         "wires": []
     },
     {
+        "id": "48d527c830e932fc",
+        "type": "comment",
+        "z": "f57f32df.2e86d",
+        "name": "MQTT ci-dessus à reconfigurer",
+        "info": "",
+        "x": 190,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "4e84c652f40b01d5",
+        "type": "comment",
+        "z": "f57f32df.2e86d",
+        "name": "mongo ci-dessus à reconfigurer",
+        "info": "",
+        "x": 970,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "3f474b3084512a8f",
+        "type": "http request",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "method": "GET",
+        "ret": "obj",
+        "paytoqs": "ignore",
+        "url": "https://api.co2signal.com/v1/latest?countryCode=FR",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [
+            {
+                "keyType": "other",
+                "keyValue": "auth-token",
+                "valueType": "other",
+                "valueValue": "REDACTED"
+            }
+        ],
+        "x": 470,
+        "y": 500,
+        "wires": [
+            [
+                "6250906d3ab40a4c",
+                "689714960f77e3b1"
+            ]
+        ]
+    },
+    {
+        "id": "6250906d3ab40a4c",
+        "type": "debug",
+        "z": "f57f32df.2e86d",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "689714960f77e3b1",
+        "type": "change",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "carbonIntensity",
+                "pt": "global",
+                "to": "payload.data.carbonIntensity",
+                "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "fossilPercentage",
+                "pt": "global",
+                "to": "payload.data.fossilFuelPercentage",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 660,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5619465f694a4f5d",
+        "type": "inject",
+        "z": "f57f32df.2e86d",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "600",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 500,
+        "wires": [
+            [
+                "3f474b3084512a8f"
+            ]
+        ]
+    },
+    {
+        "id": "d5d71477f6649eb0",
+        "type": "template",
+        "z": "f57f32df.2e86d",
+        "name": "carbon",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"carbon\" :{{global.carbonIntensity}}}",
+        "output": "json",
+        "x": 550,
+        "y": 340,
+        "wires": [
+            [
+                "b61597c9ac365928"
+            ]
+        ]
+    },
+    {
+        "id": "c879df4207748cce",
+        "type": "template",
+        "z": "f57f32df.2e86d",
+        "name": "fossil",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"fossil\": {{global.fossilPercentage}}}",
+        "output": "json",
+        "x": 550,
+        "y": 400,
+        "wires": [
+            [
+                "724a7a4113e59c17",
+                "b61597c9ac365928"
+            ]
+        ]
+    },
+    {
+        "id": "724a7a4113e59c17",
+        "type": "debug",
+        "z": "f57f32df.2e86d",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 400,
+        "wires": []
+    },
+    {
         "id": "299a63a9.e00a0c",
         "type": "mqtt in",
         "z": "4ce6f98c.254bf",
@@ -555,7 +762,9 @@
         "wires": [
             [
                 "1d4ec5b5.82c9f2",
-                "ba3c0dd7dccecb83"
+                "ba3c0dd7dccecb83",
+                "5baf0d879bd9623a",
+                "146ff343f1436e05"
             ]
         ]
     },
@@ -774,7 +983,7 @@
         "type": "ui_text",
         "z": "4ce6f98c.254bf",
         "group": "1bb2d88d.8be177",
-        "order": 3,
+        "order": 2,
         "width": 0,
         "height": 0,
         "name": "",
@@ -824,7 +1033,7 @@
         "z": "4ce6f98c.254bf",
         "name": "",
         "group": "1bb2d88d.8be177",
-        "order": 2,
+        "order": 1,
         "width": 0,
         "height": 0,
         "gtype": "donut",
@@ -930,6 +1139,7 @@
         "id": "7b4f16d13da2e001",
         "type": "ui_chart",
         "z": "4ce6f98c.254bf",
+        "d": true,
         "name": "",
         "group": "240ad2a73d73d8c0",
         "order": 7,
@@ -976,18 +1186,286 @@
         "z": "4ce6f98c.254bf",
         "name": "En cours!",
         "info": "En cours!",
-        "x": 400,
-        "y": 380,
+        "x": 900,
+        "y": 340,
         "wires": []
     },
     {
-        "id": "0f0f2efcdc77505c",
+        "id": "dc5858901600297e",
         "type": "comment",
         "z": "4ce6f98c.254bf",
-        "name": "Ajout du CO2 en fonction du pays (sélect from FR, AL, UK, BE, IT, ESP)",
+        "name": "MQTT ci-dessus à reconfigurer",
         "info": "",
-        "x": 530,
-        "y": 480,
+        "x": 150,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "dbaf8f715c5c2112",
+        "type": "ui_gauge",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "group": "724504a751674592",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "émissions de CO2",
+        "label": "g/kWh",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "900",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "100",
+        "seg2": "300",
+        "className": "",
+        "x": 690,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "4ab7268cf0c9567e",
+        "type": "template",
+        "z": "4ce6f98c.254bf",
+        "name": "fossil",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{global.fossilPercentage}}",
+        "output": "json",
+        "x": 470,
+        "y": 680,
+        "wires": [
+            [
+                "c192474ab8a59c34"
+            ]
+        ]
+    },
+    {
+        "id": "ce4bb7b73b97b48b",
+        "type": "template",
+        "z": "4ce6f98c.254bf",
+        "name": "carbon",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{{global.carbonIntensity}}",
+        "output": "json",
+        "x": 470,
+        "y": 620,
+        "wires": [
+            [
+                "dbaf8f715c5c2112"
+            ]
+        ]
+    },
+    {
+        "id": "2bd323217f441ac7",
+        "type": "inject",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "120",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "2",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 270,
+        "y": 660,
+        "wires": [
+            [
+                "ce4bb7b73b97b48b",
+                "4ab7268cf0c9567e"
+            ]
+        ]
+    },
+    {
+        "id": "c192474ab8a59c34",
+        "type": "ui_gauge",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "group": "724504a751674592",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "% énergies fossiles",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "10",
+        "seg2": "20",
+        "className": "",
+        "x": 690,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "5baf0d879bd9623a",
+        "type": "debug",
+        "z": "4ce6f98c.254bf",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "9c9c5f18f758b4c1",
+        "type": "function",
+        "z": "4ce6f98c.254bf",
+        "name": "function 2",
+        "func": "var papp = parseInt(msg.payload.PAPP);\nvar carbon = msg.payload.carbon;\n\nmsg.payload = papp * carbon / 60000;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nflow.set(\"old_power\", 0);",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 400,
+        "wires": [
+            [
+                "f3db8186f57cc918",
+                "41a1ef5aa1a9a95c"
+            ]
+        ]
+    },
+    {
+        "id": "f3db8186f57cc918",
+        "type": "debug",
+        "z": "4ce6f98c.254bf",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "982f13bb8ac0c4e7",
+        "type": "inject",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "40",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "carbon",
+        "payload": "carbonIntensity",
+        "payloadType": "global",
+        "x": 190,
+        "y": 420,
+        "wires": [
+            [
+                "146ff343f1436e05",
+                "dac276774883c29d"
+            ]
+        ]
+    },
+    {
+        "id": "146ff343f1436e05",
+        "type": "join",
+        "z": "4ce6f98c.254bf",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "accumulate": false,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "num",
+        "reduceFixup": "",
+        "x": 370,
+        "y": 400,
+        "wires": [
+            [
+                "9c9c5f18f758b4c1"
+            ]
+        ]
+    },
+    {
+        "id": "41a1ef5aa1a9a95c",
+        "type": "ui_text",
+        "z": "4ce6f98c.254bf",
+        "group": "724504a751674592",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Vous émettez actuellement",
+        "format": "{{msg.payload}}g de co2 par minute",
+        "layout": "row-spread",
+        "className": "",
+        "x": 720,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "dac276774883c29d",
+        "type": "debug",
+        "z": "4ce6f98c.254bf",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 440,
         "wires": []
     },
     {
@@ -1325,6 +1803,16 @@
         ]
     },
     {
+        "id": "a04a5767e0b72947",
+        "type": "comment",
+        "z": "572a4fbb.49dd48",
+        "name": "mongo ci-dessus à reconfigurer",
+        "info": "",
+        "x": 310,
+        "y": 120,
+        "wires": []
+    },
+    {
         "id": "b5f78e5b3753562a",
         "type": "ui_switch",
         "z": "69d60a8f3bd25bb7",
@@ -1660,9 +2148,7 @@
         "x": 710,
         "y": 400,
         "wires": [
-            [
-                "5a88b9a4de9bfc3f"
-            ]
+            []
         ]
     },
     {
@@ -1687,9 +2173,7 @@
         "x": 710,
         "y": 440,
         "wires": [
-            [
-                "40a838385bbfd184"
-            ]
+            []
         ]
     },
     {
@@ -1702,11 +2186,11 @@
         "height": 0,
         "name": "",
         "label": "Tarif heures pleines :",
-        "format": " {{global.HP_tarif}} €/kWh",
+        "format": " {{msg.payload}} €/kWh",
         "layout": "row-left",
         "className": "",
-        "x": 940,
-        "y": 400,
+        "x": 700,
+        "y": 500,
         "wires": []
     },
     {
@@ -1719,11 +2203,61 @@
         "height": 0,
         "name": "",
         "label": "Tarif heures creuses",
-        "format": " {{global.HC_tarif}} €/kWh",
+        "format": " {{msg.payload}} €/kWh",
         "layout": "row-left",
         "className": "",
-        "x": 940,
-        "y": 440,
+        "x": 700,
+        "y": 540,
         "wires": []
+    },
+    {
+        "id": "be0ff637df9d79df",
+        "type": "inject",
+        "z": "69d60a8f3bd25bb7",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "HP_tarif",
+        "payloadType": "global",
+        "x": 470,
+        "y": 500,
+        "wires": [
+            [
+                "5a88b9a4de9bfc3f"
+            ]
+        ]
+    },
+    {
+        "id": "48591115328d6718",
+        "type": "inject",
+        "z": "69d60a8f3bd25bb7",
+        "name": "init",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "HC_tarif",
+        "payloadType": "global",
+        "x": 470,
+        "y": 540,
+        "wires": [
+            [
+                "40a838385bbfd184"
+            ]
+        ]
     }
 ]

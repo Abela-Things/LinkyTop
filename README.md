@@ -20,6 +20,8 @@ J'ai joint un dump de la sortie de mon compteur, j'avais récupéré ça au déb
 ## Node-Red
 Les "flows" nécessaires au fonctionnement du projet et au dashboard sont définis dans le fichier **flows.json**, vous pourrez l'importer vous-même depuis l'interface de node-red une fois que vous l'aurez installé. J'ai joint mon fichier de configuration aussi, mais à part pour gérer les comptes utilisateurs, je ne m'en suis pas vraiment servi. Ça ne fonctionnera pas out-of-the-box parce-que vous devrez installer vous-même nodered et les dépendances définies dans **package.json** (installables depuis l'interface web de nodered ou via npm), et vous devrez configurer la connexion MQTT et mongo avec vos propres serveurs.
 
+## Données CO2 et origine de l'électricité du réseau Français: electricitymaps.com
+
 ## Limitations et améliorations possibles
 * Le compteur Linky peut allimenter les appareils qui récupèrent les infos de la sortie TIC, mais seuls 150mW sont disponibles ce qui est bien trop peu pour l'ESP-01. C'est un projet simple à mettre en place grâce à l'ESP, mais une solution avec une radio de faible puissance à la place de l'ESP pourrait être alimentée et ne pas nécessiter de batterie et d'entretien.
 * Affichage du statut EcoWatt via l'API RTE dédiée.

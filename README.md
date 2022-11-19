@@ -22,8 +22,6 @@ Les "flows" nécessaires au fonctionnement du projet et au dashboard sont défin
 
 ## Limitations et améliorations possibles
 * Le compteur Linky peut allimenter les appareils qui récupèrent les infos de la sortie TIC, mais seuls 150mW sont disponibles ce qui est bien trop peu pour l'ESP-01. C'est un projet simple à mettre en place grâce à l'ESP, mais une solution avec une radio de faible puissance à la place de l'ESP pourrait être alimentée et ne pas nécessiter de batterie et d'entretien.
-* Des informations sur les émissions de CO2/kWh peuvent-être récupérées et affichées dans le dashboard.
-* Pareil pour les moyens de productions électrique à un instant donné.
 * Affichage du statut EcoWatt via l'API RTE dédiée.
 * Déploiement automatique des serveurs MQTT et Node-red
 * Configuration du Wifi non-hardcodée via une interface web
